@@ -208,6 +208,11 @@ stp:
         pkg: genie.libs.ops
         class: stp.stp.Stp
     devices: ['uut']
+    exclude:
+        - bpdu_sent
+        - bpdu_received
+        - time_since_topology_change
+        - topology_changes
 
 static_routing:
     source:
@@ -326,3 +331,13 @@ arp:
     devices: ['uut']
     exclude:
         - in_requests_pkts
+
+lag:
+    source:
+        pkg: genie.libs.ops
+        class: lag.lag.Lag
+    devices: ['uut']
+    exclude:
+        - age
+        - lacp_in_pkts
+        - lacp_out_pkts
